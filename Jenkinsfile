@@ -29,6 +29,10 @@ pipeline{
         stage('Terraform Plan') {
             steps {
                 sh 'terraform plan'
+            }
+        }
+        stage('Proceed next stages') {
+            steps {
                 input('Do you want to proceed?')
             }
         }
