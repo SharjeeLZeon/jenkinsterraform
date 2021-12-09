@@ -6,6 +6,6 @@ resource "aws_vpc" "SharjeelVPC" {
 
 
   tags = {
-    Name = "SharjeelVPC"
+    Name = "SharjeelVPCs"
   }
 }
