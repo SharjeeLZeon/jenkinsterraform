@@ -11,7 +11,7 @@ pipeline{
     stages{
         stage("Git Checkout"){
             steps{
-                git credentialsId: '69cd91316b79425175e45e39052b425dc2cb4eb3', url: 'https://github.com/SharjeeLZeon/jenkinsterraform.git'
+                git credentialsId: 'e4583a96-72a0-4803-8ccc-66d5f94d33b5', url: 'https://github.com/SharjeeLZeon/jenkinsterraform'
             }
         }
 
