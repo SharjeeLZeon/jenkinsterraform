@@ -29,16 +29,12 @@ pipeline{
             steps{
                 
                 
-                try {
-                    sh 'terraform init'
-                
-                    } catch (err) {
-                        slackSend message: err.getMessage()
-                    }
-                
-                
-                
-                
+             catchError {
+                slackSend message: 'aws resources init error occured'
+                sh "exit 1"
+            }
+            
+                slackSend message: 'aws resources init successfull'
                 
             }
         }
