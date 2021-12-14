@@ -1,9 +1,12 @@
 properties([parameters([booleanParam(defaultValue: false, description: 'tihellow worldlllll include init step', name: 'includeInit'), choice(choices: ['apply', 'destroy'], description: 'select apply or destroy which to include', name: 'applyORdestroy')])])
 
 pipeline{
-    agent 'linuxs'
+    agent {
+         label 'linuxs'
+    }
+
     tools {
-        terraform {'terraformlinux'}
+        terraform 'terraformlinux'
     }  
 
 
