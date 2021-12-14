@@ -2,7 +2,7 @@ properties([parameters([booleanParam(defaultValue: false, description: 'include 
 
 pipeline{
     agent {
-         label 'terraformwindows'
+         label 'windows'
     }
 
     tools {
