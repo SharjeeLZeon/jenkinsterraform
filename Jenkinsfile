@@ -1,9 +1,12 @@
-properties([parameters([booleanParam(defaultValue: false, description: 'tickmark to include init step', name: 'includeInit'), choice(choices: ['apply', 'destroy'], description: 'select apply or destroy which to include', name: 'applyORdestroy')])])
+properties([parameters([booleanParam(defaultValue: false, description: 'tihellow worldlllll include init step', name: 'includeInit'), choice(choices: ['apply', 'destroy'], description: 'select apply or destroy which to include', name: 'applyORdestroy')])])
 
 pipeline{
-    agent any
+    agent {
+         label 'linuxs'
+    }
+
     tools {
-        terraform 'terraform'
+        terraform 'terraformlinux'
     }  
 
 
@@ -31,11 +34,12 @@ pipeline{
                 sh 'terraform plan'
             }
         }
-        stage('Proceed next') {
+        stage('Proceed next stages') {
             steps {
                 input('Do you want to proceed?')
             }
         }
+
 
         stage('Terraform apply'){
             when{
