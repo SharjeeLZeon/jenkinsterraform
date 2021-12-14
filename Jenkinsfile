@@ -61,7 +61,7 @@ pipeline{
             steps{
                 sh 'terraform apply --auto-approve'
                 slackSend message: 'aws resources created successfully'
-                currentBuild.result = "success"
+                
             }
             }
 
@@ -76,7 +76,7 @@ pipeline{
             steps{
                 sh 'terraform destroy --auto-approve'
                 slackSend message: 'aws resources destroyed successfully'
-                currentBuild.result = "success"
+                
             }
         }
 
