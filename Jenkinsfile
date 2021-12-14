@@ -10,8 +10,10 @@ pipeline{
     }  
 
 
-
+    
     stages{
+        try{
+        
         stage("Git Checkout"){
             steps{
                 git credentialsId: 'e4583a96-72a0-4803-8ccc-66d5f94d33b5', url: 'https://github.com/SharjeeLZeon/jenkinsterraform'
@@ -59,6 +61,7 @@ pipeline{
             steps{
                 sh 'terraform apply --auto-approve'
                 slackSend message: 'aws resources created successfully'
+                currentBuild.result = "success"
             }
             }
 
@@ -73,10 +76,17 @@ pipeline{
             steps{
                 sh 'terraform destroy --auto-approve'
                 slackSend message: 'aws resources destroyed successfully'
+                currentBuild.result = "success"
             }
         }
 
-
+        }catch(e){
+            currentBuild.result = "FAILED"
+            throw e
+        } finally{
+            echo currentBuild.result
+        }
+        
 
     }
 }
