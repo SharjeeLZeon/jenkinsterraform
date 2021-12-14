@@ -24,9 +24,22 @@ pipeline{
                 expression{
                     params.includeInit == true
                 }
+                
             }
             steps{
-                sh 'terraform init'
+                
+                
+                try {
+                    sh 'terraform init'
+                
+                    } catch (err) {
+                        slackSend message: err.getMessage()
+                    }
+                
+                
+                
+                
+                
             }
         }
         stage('Terraform Plan') {
