@@ -2,11 +2,11 @@ properties([parameters([booleanParam(defaultValue: false, description: 'include 
 
 pipeline{
     agent {
-         label 'linuxs'
+         label 'terraformwindows'
     }
 
     tools {
-        terraform 'terraformlinux'
+        terraform 'terraformwindows'
     }  
 
 
