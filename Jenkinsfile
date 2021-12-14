@@ -3,7 +3,7 @@ properties([parameters([booleanParam(defaultValue: false, description: 'tihellow
 pipeline{
     agent 'linuxs'
     tools {
-        terraform 'terraformlinux'
+        terraform {'terraformlinux'}
     }  
 
 
