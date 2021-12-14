@@ -27,14 +27,14 @@ pipeline{
                 
             }
             steps{
-                
-                try{
-                    sh 'terraform init'
-                    slackSend message: 'init occur successfull'
-                } catch(err){
-                    slackSend message: 'init dont occur successfull'
+                script{
+                    try{
+                        sh 'terraform init'
+                        slackSend message: 'init occur successfull'
+                    } catch(err){
+                        slackSend message: 'init dont occur successfull'
+                    }
                 }
-               
                 
             }
         }
