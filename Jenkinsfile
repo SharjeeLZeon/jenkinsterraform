@@ -1,4 +1,4 @@
-properties([parameters([booleanParam(defaultValue: false, description: 'tihellow worldlllll include init step', name: 'includeInit'), choice(choices: ['apply', 'destroy'], description: 'select apply or destroy which to include', name: 'applyORdestroy')])])
+properties([parameters([booleanParam(defaultValue: false, description: 'include init step', name: 'includeInit'), choice(choices: ['apply', 'destroy'], description: 'select apply or destroy which to include', name: 'applyORdestroy')])])
 
 pipeline{
     agent {
@@ -49,6 +49,7 @@ pipeline{
             }
             steps{
                 sh 'terraform apply --auto-approve'
+                slackSend message: 'aws resources created successfully'
             }
             }
 
@@ -62,6 +63,7 @@ pipeline{
             }
             steps{
                 sh 'terraform destroy --auto-approve'
+                slackSend message: 'aws resources destroyed successfully'
             }
         }
 
