@@ -84,4 +84,14 @@ pipeline{
         
 
     }
+    post {
+        success {
+            slackSend message: 'build successfully executed'
+        }
+        failure {
+            slackSend message: 'build was not executed successfull'
+        }
+    
+    
+    }
 }
