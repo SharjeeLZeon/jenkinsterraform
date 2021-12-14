@@ -12,7 +12,7 @@ pipeline{
 
     
     stages{
-        try{
+
         
         stage("Git Checkout"){
             steps{
@@ -80,12 +80,7 @@ pipeline{
             }
         }
 
-        }catch(e){
-            currentBuild.result = "FAILED"
-            throw e
-        } finally{
-            echo currentBuild.result
-        }
+
         
 
     }
