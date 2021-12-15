@@ -87,6 +87,7 @@ pipeline{
     post {
         success {
             slackSend message: 'build successfully executed'
+            slackSend message: "Build successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
         }
         failure {
             slackSend message: 'build execution not successful'
