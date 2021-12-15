@@ -93,7 +93,7 @@ pipeline{
             script{
                 username = "sharjeel"
                 slackSend color: '#FF0000', message: "Username: ${username}"
-                slackSend color: '#FF0000', message: "Build failure occured - Job Name:${env.JOB_NAME}  Build Number:${env.BUILD_NUMBER}  Build URL:(<${env.BUILD_URL}|Open>)"
+                slackSend color: '#AAFF00', message: "Build failure occured - Job Name:${env.JOB_NAME}  Build Number:${env.BUILD_NUMBER}  Build URL:(<${env.BUILD_URL}|Open>)"
 
 
             }
