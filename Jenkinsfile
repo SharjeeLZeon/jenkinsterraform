@@ -95,6 +95,7 @@ pipeline{
                 slackSend message: 'build execution not successful'
                 slackSend message: "Build failure - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
                 slackSend message: username
+                slackSend message: "${env.BUILD_USER_ID}"
                 slackUserIdsFromCommitters()
                 slackSend message: slackUserIdsFromCommitters()
             }
