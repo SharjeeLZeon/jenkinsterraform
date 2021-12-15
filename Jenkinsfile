@@ -86,10 +86,12 @@ pipeline{
     }
     post {
         success {
+            script{
                 username = "sharjeel"
                 slackSend color: '#AAFF00', message: "Username: ${username}"
                 slackSend color: '#AAFF00', message: "Build Successful - Job Name:${env.JOB_NAME}  Build Number:${env.BUILD_NUMBER}  Build URL:(<${env.BUILD_URL}|Open>)"
-        }
+            }
+            }
         failure {
             script{
                 username = "sharjeel"
