@@ -92,12 +92,10 @@ pipeline{
         failure {
             script{
                 username = "sharjeel"
-                slackSend message: 'build execution not successful'
-                slackSend message: "Build failure - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-                slackSend message: username
-                slackSend message: "${env.BUILD_USER_ID}"
-                slackUserIdsFromCommitters()
-                slackSend message: slackUserIdsFromCommitters()
+                slackSend message: "Username: ${username}"
+                slackSend message: "Build failure occured - Job Name: ${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build URL:(<${env.BUILD_URL}|Open>)"
+
+
             }
             }
     
