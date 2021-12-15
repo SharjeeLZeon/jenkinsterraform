@@ -89,7 +89,7 @@ pipeline{
             slackSend message: 'build successfully executed'
         }
         failure {
-            slackSend message: 'build was not executed successfull'
+            slackSend "Build failure - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
         }
     
     
